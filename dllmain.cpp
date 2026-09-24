@@ -276,7 +276,16 @@ BOOL APIENTRY DllMain
     LPVOID Reserved
 )
 {
-    if (CallReason != DLL_PROCESS_ATTACH) return TRUE;
+	if (CallReason != DLL_PROCESS_ATTACH) return TRUE;
+#ifdef _DEBUG
+	MessageBoxA(NULL, "DEBUG COMPILATION MAY BE BUGGY AND ITS NON SUPPORTED", "ERROR", MB_OK | MB_ICONERROR);
+	exit(-1);
+#endif // _DEBUG
+#ifdef _WIN64
+	MessageBoxA(NULL, "PVZ is x32 game please change compilation from x64 to x32","ERROR",MB_OK | MB_ICONERROR);
+	exit(-1);
+#endif // _DEBUG
+
 	
 	// Writes to memory
 	DoPatches();
