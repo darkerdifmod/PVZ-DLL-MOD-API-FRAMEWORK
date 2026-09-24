@@ -7,5 +7,6 @@
 ### Next Plans
 
 - [x] Fix Ambush crash
+- [x] Add more Reanimation Supports
 - [ ] Add hooks for `Lawn::Init` and `Lawn::Update`
 - [ ] Fix bugs
