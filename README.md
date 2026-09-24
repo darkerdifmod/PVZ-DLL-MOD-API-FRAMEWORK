@@ -8,5 +8,6 @@
 
 - [x] Fix Ambush crash
 - [x] Add more Reanimation Supports
-- [ ] Add hooks for `Lawn::Init` and `Lawn::Update`
+- [x] Add hooks for `Lawn::Init` and `Lawn::Update`
+- [ ] Port gPlantDefs and gZombieDefs
 - [ ] Fix bugs
