@@ -8,6 +8,24 @@ void __stdcall GameLoaded(LawnApp* App)
 	
 }
 
+void __stdcall LawnInitLevel(Lawn* aLawn)
+{
+	auto Lawn = aLawn;
+	auto App = Lawn->mApp;
+	Original::LawnInitLevel(aLawn); // vanilla init first
+}
+
+void __stdcall LawnUpdating(Lawn* aLawn)
+{
+	auto Lawn = aLawn;
+	auto App = Lawn->mApp;
+	Original::LawnUpdate(aLawn); // vanilla update (this also updates plants, zombies, etc.)
+	if (App->mGameMode == GAMEMODE_CHALLENGE_BIG_TIME)
+	{
+		Lawn->mSunMoney += 1;
+	}
+}
+
 // Called when a new plant is added to the game.
 void __stdcall PlantAdded(Plant* aPlant)
 {

@@ -3,6 +3,11 @@
 // Original functions. Call them to perform the vanilla game behavior. You can add to the vanilla behavior or overwrite it completely.
 namespace Original
 {
+	// The original level init function. Call to initialize the level normally.
+	void __stdcall LawnInitLevel(Lawn*);
+	// The original game object update function. Call to update the lawn normally.
+	void __stdcall LawnUpdate(Lawn*);
+
 	// The original plant update function. Call to update the plant normally.
 	void __stdcall PlantUpdate(Plant*);
 	// The original shooting function. Call to make the plant shoot normally.

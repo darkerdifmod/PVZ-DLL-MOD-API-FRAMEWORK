@@ -5,6 +5,13 @@ using namespace Sexy;
 // Load resources in this function. Called only once when the game is started.
 void __stdcall GameLoaded(LawnApp*);
 
+// Board \\
+// Called when a level is initialized.
+void __stdcall LawnInitLevel(Lawn*);
+
+// Called every frame while the level's game objects are updating.
+void __stdcall LawnUpdating(Lawn*);
+
 // Plants \\
 // Called when a new plant is added to the game.
 void __stdcall PlantAdded(Plant*);

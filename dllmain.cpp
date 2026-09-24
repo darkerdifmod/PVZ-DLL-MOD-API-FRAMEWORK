@@ -17,6 +17,16 @@ void __stdcall Hook(DWORD Address, void* Function)
 	VirtualProtect((LPVOID)Address, 5, OldProt, &Temp);
 }
 
+__declspec(naked) void LAWNUPDATING()
+{
+	__asm
+	{
+		push ebx // Lawn*
+		call LawnUpdating
+		ret
+	}
+}
+
 void __declspec(naked) PLANTADDED()
 {
 	__asm
@@ -269,6 +279,36 @@ __declspec(naked) void __stdcall Original::ZombieUpdate(Zombie*)
 	}
 }
 
+CONST DWORD _F10 = 0x40AF96;
+__declspec(naked) void __stdcall Original::LawnInitLevel(Lawn*)
+{
+	__asm
+	{
+		push ebx
+		push ebp
+		mov ebp, dword ptr[esp + 0xC]
+		jmp _F10
+	}
+}
+
+CONST DWORD _F11 = 0x4130D5;
+__declspec(naked) void __stdcall Original::LawnUpdate(Lawn*)
+{
+	__asm
+	{
+		push ebx // save the caller's ebx, since the game function needs ebx = Lawn*
+		mov ebx, [esp + 8] // Lawn* argument
+		call Tramp // return here after the original function finishes
+		pop ebx
+		ret 4
+	Tramp:
+		sub esp, 8 // stolen bytes
+		push ebp
+		push esi
+		jmp _F11
+	}
+}
+
 BOOL APIENTRY DllMain
 (
     HMODULE ModHandle,
@@ -293,6 +333,10 @@ BOOL APIENTRY DllMain
 	// Hooks
 	Hook(0x452CB0, ONLOAD);
 
+	// Board
+	Hook(0x40AF90, LawnInitLevel);
+	Hook(0x4130D0, LAWNUPDATING);
+
 	// Plant
 	Hook(0x40D19B, PLANTADDED);
 	Hook(0x463E40, PLANTUPDATING);
@@ -315,7 +359,7 @@ BOOL APIENTRY DllMain
 	AllocConsole();
 	FILE* O = nullptr;
 	freopen_s(&O, "CONOUT$", "w", stdout);
-	SetConsoleTitleA("LunaIO");
+	SetConsoleTitleA("im console and im alive");
 
     return TRUE;
 }
