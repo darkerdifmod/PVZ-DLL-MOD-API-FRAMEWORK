@@ -405,6 +405,7 @@ Zombie* Lawn::GetNearestZombie(FVector2 Point, float MinDist, ZombieType Filter,
 
 	while (aZombie)
 	{
+		if (!aZombie->mHasHead || aZombie->mDead) goto Skip;
 		if (!DoFilter) goto Qualifies;
 		if (IsBlacklist && aZombie->mZombieType == Filter) goto Skip;
 		if (!IsBlacklist && aZombie->mZombieType != Filter) goto Skip;
