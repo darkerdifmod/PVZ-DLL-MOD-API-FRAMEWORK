@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="ModApi">
+      <UniqueIdentifier>{2107CFED-ACB9-4827-9DFC-80CEF94779B5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ModApi\MSD3D">
+      <UniqueIdentifier>{61F6BF59-2CD0-4BA7-96F0-B111DC2FE903}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ModApi\CGeometry.cpp">
+      <Filter>ModApi</Filter>
+    </ClCompile>
+    <ClCompile Include="ModApi\Graphics.cpp">
+      <Filter>ModApi</Filter>
+    </ClCompile>
+    <ClCompile Include="ModApi\Image.cpp">
+      <Filter>ModApi</Filter>
+    </ClCompile>
+    <ClCompile Include="ModApi\LawnApp.cpp">
+      <Filter>ModApi</Filter>
+    </ClCompile>
+    <ClCompile Include="ModApi\PlantDefinition.cpp">
+      <Filter>ModApi</Filter>
+    </ClCompile>
+    <ClCompile Include="ModApi\ProjectileDefinition.cpp">
+      <Filter>ModApi</Filter>
+    </ClCompile>
+    <ClCompile Include="ModApi\Zombie.cpp">
+      <Filter>ModApi</Filter>
+    </ClCompile>
+    <ClCompile Include="ModApi\ZombieDefinition.cpp">
+      <Filter>ModApi</Filter>
+    </ClCompile>
+    <ClCompile Include="ModApi\Lawn.cpp">
+      <Filter>ModApi</Filter>
+    </ClCompile>
+    <ClCompile Include="ModApi\Plant.cpp">
+      <Filter>ModApi</Filter>
+    </ClCompile>
+    <ClCompile Include="Functions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ModApi\Reanimation.h">
+      <Filter>ModApi</Filter>
+    </ClCompile>
+    <ClCompile Include="ModApi\GameObject.cpp">
+      <Filter>ModApi</Filter>
+    </ClCompile>
+    <ClCompile Include="ModApi\GridItem.cpp">
+      <Filter>ModApi</Filter>
+    </ClCompile>
+    <ClCompile Include="ModApi\Pickup.cpp">
+      <Filter>ModApi</Filter>
+    </ClCompile>
+    <ClCompile Include="ModApi\Projectile.cpp">
+      <Filter>ModApi</Filter>
+    </ClCompile>
+    <ClCompile Include="ModApi\Reanimation.cpp">
+      <Filter>ModApi</Filter>
+    </ClCompile>
+    <ClCompile Include="ModApi\EffectSystem.cpp">
+      <Filter>ModApi</Filter>
+    </ClCompile>
+    <ClCompile Include="HealthBars.cpp">
+      <Filter>ModApi</Filter>
+    </ClCompile>
+    <ClCompile Include="Patches.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MemUtil.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ModApi\MSD3D\MSD3D.h">
+      <Filter>ModApi\MSD3D</Filter>
+    </ClInclude>
+    <ClInclude Include="ModApi\Buffer.h">
+      <Filter>ModApi</Filter>
+    </ClInclude>
+    <ClInclude Include="ModApi\CGeometry.h">
+      <Filter>ModApi</Filter>
+    </ClInclude>
+    <ClInclude Include="ModApi\ConstEnums.h">
+      <Filter>ModApi</Filter>
+    </ClInclude>
+    <ClInclude Include="ModApi\DataArray.h">
+      <Filter>ModApi</Filter>
+    </ClInclude>
+    <ClInclude Include="ModApi\ExtendedUI.h">
+      <Filter>ModApi</Filter>
+    </ClInclude>
+    <ClInclude Include="ModApi\ForwardDefinitions.h">
+      <Filter>ModApi</Filter>
+    </ClInclude>
+    <ClInclude Include="ModApi\GameObject.h">
+      <Filter>ModApi</Filter>
+    </ClInclude>
+    <ClInclude Include="ModApi\Graphics.h">
+      <Filter>ModApi</Filter>
+    </ClInclude>
+    <ClInclude Include="ModApi\Image.h">
+      <Filter>ModApi</Filter>
+    </ClInclude>
+    <ClInclude Include="ModApi\Lawn.h">
+      <Filter>ModApi</Filter>
+    </ClInclude>
+    <ClInclude Include="ModApi\LawnApp.h">
+      <Filter>ModApi</Filter>
+    </ClInclude>
+    <ClInclude Include="ModApi\Listeners.h">
+      <Filter>ModApi</Filter>
+    </ClInclude>
+    <ClInclude Include="ModApi\ModApi.hpp">
+      <Filter>ModApi</Filter>
+    </ClInclude>
+    <ClInclude Include="ModApi\Plant.h">
+      <Filter>ModApi</Filter>
+    </ClInclude>
+    <ClInclude Include="ModApi\PopStructs.h">
+      <Filter>ModApi</Filter>
+    </ClInclude>
+    <ClInclude Include="ModApi\Projectile.h">
+      <Filter>ModApi</Filter>
+    </ClInclude>
+    <ClInclude Include="ModApi\Rect.h">
+      <Filter>ModApi</Filter>
+    </ClInclude>
+    <ClInclude Include="ModApi\SexyApp.h">
+      <Filter>ModApi</Filter>
+    </ClInclude>
+    <ClInclude Include="ModApi\TodLib.h">
+      <Filter>ModApi</Filter>
+    </ClInclude>
+    <ClInclude Include="ModApi\UIElement.h">
+      <Filter>ModApi</Filter>
+    </ClInclude>
+    <ClInclude Include="ModApi\UIRoot.h">
+      <Filter>ModApi</Filter>
+    </ClInclude>
+    <ClInclude Include="ModApi\Vector2.h">
+      <Filter>ModApi</Filter>
+    </ClInclude>
+    <ClInclude Include="ModApi\Vector3.h">
+      <Filter>ModApi</Filter>
+    </ClInclude>
+    <ClInclude Include="ModApi\Zombie.h">
+      <Filter>ModApi</Filter>
+    </ClInclude>
+    <ClInclude Include="Functions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Original.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ModApi\GridItem.h">
+      <Filter>ModApi</Filter>
+    </ClInclude>
+    <ClInclude Include="ModApi\Pickup.h">
+      <Filter>ModApi</Filter>
+    </ClInclude>
+    <ClInclude Include="ModApi\PottedPlant.h">
+      <Filter>ModApi</Filter>
+    </ClInclude>
+    <ClInclude Include="ModApi\Attachment.h">
+      <Filter>ModApi</Filter>
+    </ClInclude>
+    <ClInclude Include="ModApi\EffectSystem.h">
+      <Filter>ModApi</Filter>
+    </ClInclude>
+    <ClInclude Include="ModApi\Particle.h">
+      <Filter>ModApi</Filter>
+    </ClInclude>
+    <ClInclude Include="ModApi\Trail.h">
+      <Filter>ModApi</Filter>
+    </ClInclude>
+    <ClInclude Include="HealthBar.h">
+      <Filter>ModApi</Filter>
+    </ClInclude>
+    <ClInclude Include="Patches.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MemUtil.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
