@@ -149,6 +149,5 @@ Coin* __stdcall CoinAdded(Board* aBoard, CoinMotion aCoinMotion, CoinType aCoinT
 	auto mBoard = aCoin->mLawn;
 	auto mApp = aCoin->mApp;
 
-
 	return aCoin; // DONT REMOVE AND IT HAS TO BE LAST LANE UN THIS FUNC
 }
