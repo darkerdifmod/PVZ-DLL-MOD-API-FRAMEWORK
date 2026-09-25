@@ -290,6 +290,29 @@ GridItem* Board::AddGrave(int Col, int Lane, bool DoEffects, bool KillPlants)
 	return New;
 }
 
+bool Board::CanAddGraveStoneAt(int theGridY, int theGridX)
+{
+	mEnableGraveStones = true;
+	auto List = std::list<GridItem*>();
+	auto aItem = mGridItems.GetNext();
+	if (mGridSquareType[theGridX][theGridY] != GridSquareType::GRIDSQUARE_GRASS && mGridSquareType[theGridX][theGridY] != GridSquareType::GRIDSQUARE_HIGH_GROUND)
+	{
+		return false;
+	}
+
+	while (aItem)
+	{
+		if (aItem->mGridX == theGridX && aItem->mGridY == theGridY)
+		{
+			if (aItem->mGridItemType == GridItemType::GRIDITEM_GRAVESTONE ||
+				aItem->mGridItemType == GridItemType::GRIDITEM_CRATER ||
+				aItem->mGridItemType == GridItemType::GRIDITEM_LADDER)
+				return false;
+		}
+	}
+	return true;
+}
+
 Coin* Board::NewPacket(SeedType Type, int X, int Y)
 {
 	auto Packet = NewPickup(PICKUP_USABLE_SEED_PACKET, X, Y);

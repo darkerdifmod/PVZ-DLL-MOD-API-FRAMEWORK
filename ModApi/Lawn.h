@@ -159,6 +159,7 @@ public:
 	GridItem* AddLadder(int Column, int Lane);
 	GridItem* AddCrater(int Column, int Lane);
 	GridItem* AddGrave(int Column, int Lane, bool DoEffects = true, bool KillPlants = true);
+	bool CanAddGraveStoneAt(int theGridY,int theGridX);
 
 	int CountGraves();
 
