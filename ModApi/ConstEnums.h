@@ -183,7 +183,7 @@ enum ChosenSeedState
     SEED_IN_CHOOSER = 3,
     SEED_PACKET_HIDDEN = 4
 };
-enum PickupMotion
+enum CoinMotion
 {
     PICKUP_MOTION_FROM_SKY,
     PICKUP_MOTION_FROM_SKY_SLOW,
@@ -193,7 +193,7 @@ enum PickupMotion
     PICKUP_MOTION_FROM_PRESENT,
     PICKUP_MOTION_FROM_BOSS
 };
-enum PickupType
+enum CoinType
 {
     PICKUP_NONE,
     PICKUP_SILVER,

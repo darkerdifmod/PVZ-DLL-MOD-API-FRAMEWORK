@@ -7,7 +7,7 @@
 #include "ModApi/Lawn.h"
 
 CONST DWORD UPDATE = 0x415D40;
-__declspec(naked) void Lawn::Update()
+__declspec(naked) void Board::Update()
 {
 	__asm
 	{
@@ -16,7 +16,7 @@ __declspec(naked) void Lawn::Update()
 }
 
 CONST DWORD DRAW = 0x41ACF0;
-__declspec(naked) void Lawn::Draw(Sexy::Graphics*)
+__declspec(naked) void Board::Draw(Sexy::Graphics*)
 {
 	__asm
 	{
@@ -25,7 +25,7 @@ __declspec(naked) void Lawn::Draw(Sexy::Graphics*)
 }
 
 CONST DWORD ADDLADDER = 0x408F40;
-__declspec(naked) GridItem* Lawn::AddLadder(int, int)
+__declspec(naked) GridItem* Board::AddLadder(int, int)
 {
 	__asm
 	{
@@ -41,7 +41,7 @@ __declspec(naked) GridItem* Lawn::AddLadder(int, int)
 }
 
 CONST DWORD ADDCRATER = 0x408F80;
-__declspec(naked) GridItem* Lawn::AddCrater(int, int)
+__declspec(naked) GridItem* Board::AddCrater(int, int)
 {
 	__asm
 	{
@@ -57,7 +57,7 @@ __declspec(naked) GridItem* Lawn::AddCrater(int, int)
 }
 
 CONST DWORD COUNTGRAVES = 0x412850;
-__declspec(naked) int Lawn::CountGraves()
+__declspec(naked) int Board::CountGraves()
 {
 	__asm
 	{
@@ -71,7 +71,7 @@ CONST DWORD SPAWNZOMBIESGRAVE = 0x412CE0;
 CONST DWORD SPAWNZOMBIESPOOL = 0x4128F0;
 CONST DWORD SPAWNZOMBIESSKY = 0x412C30;
 
-__declspec(naked) void Lawn::SpawnZombiesFromGrave()
+__declspec(naked) void Board::SpawnZombiesFromGrave()
 {
 	__asm
 	{
@@ -82,7 +82,7 @@ __declspec(naked) void Lawn::SpawnZombiesFromGrave()
 		ret
 	}
 }
-__declspec(naked) void Lawn::SpawnZombiesFromPool()
+__declspec(naked) void Board::SpawnZombiesFromPool()
 {
 	__asm
 	{
@@ -90,7 +90,7 @@ __declspec(naked) void Lawn::SpawnZombiesFromPool()
 		jmp SPAWNZOMBIESPOOL
 	}
 }
-__declspec(naked) void Lawn::SpawnZombiesFromSky()
+__declspec(naked) void Board::SpawnZombiesFromSky()
 {
 	__asm
 	{
@@ -103,7 +103,7 @@ __declspec(naked) void Lawn::SpawnZombiesFromSky()
 }
 
 CONST DWORD NEWPLANT = 0x40CE20;
-__declspec(naked) Plant* Lawn::NewPlant(int, int, SeedType, SeedType)
+__declspec(naked) Plant* Board::NewPlant(int, int, SeedType, SeedType)
 {
 	__asm
 	{
@@ -113,7 +113,7 @@ __declspec(naked) Plant* Lawn::NewPlant(int, int, SeedType, SeedType)
 }
 
 CONST DWORD PLANTEFFECTS = 0x40CE60;
-__declspec(naked) void Lawn::DoPlantingEffects(int, int, Plant*)
+__declspec(naked) void Board::DoPlantingEffects(int, int, Plant*)
 {
 	__asm
 	{
@@ -127,7 +127,7 @@ __declspec(naked) void Lawn::DoPlantingEffects(int, int, Plant*)
 }
 
 CONST DWORD NEWPROJ = 0x40D620;
-__declspec(naked) Projectile* Lawn::NewProjectile(int, int, int, int, ProjectileType)
+__declspec(naked) Projectile* Board::NewProjectile(int, int, int, int, ProjectileType)
 {
 	__asm
 	{
@@ -137,7 +137,7 @@ __declspec(naked) Projectile* Lawn::NewProjectile(int, int, int, int, Projectile
 }
 
 CONST DWORD ADDPICK = 0x40CB10;
-__declspec(naked) Pickup* Lawn::NewPickup(int, int, PickupType, PickupMotion)
+__declspec(naked) Coin* Board::NewPickup(int, int, CoinType, CoinMotion)
 {
 	__asm
 	{
@@ -146,7 +146,7 @@ __declspec(naked) Pickup* Lawn::NewPickup(int, int, PickupType, PickupMotion)
 }
 
 CONST DWORD NEWZOMB = 0x40DDC0;
-__declspec(naked) Zombie* Lawn::NewZombie(ZombieType, int, int)
+__declspec(naked) Zombie* Board::NewZombie(ZombieType, int, int)
 {
 	__asm
 	{
@@ -161,7 +161,7 @@ __declspec(naked) Zombie* Lawn::NewZombie(ZombieType, int, int)
 	}
 }
 
-GridItem* Lawn::NewGridItem(GridItemType Type, int Lane, int Column)
+GridItem* Board::NewGridItem(GridItemType Type, int Lane, int Column)
 {
 	auto aItem = mGridItems.Allocate();
 	aItem->mGridItemType = Type;
@@ -173,7 +173,7 @@ GridItem* Lawn::NewGridItem(GridItemType Type, int Lane, int Column)
 
 	return aItem;
 }
-Pickup* Lawn::NewPickup(PickupType Type, int X, int Y, PickupMotion M)
+Coin* Board::NewPickup(CoinType Type, int X, int Y, CoinMotion M)
 {
 	return NewPickup(X, Y, Type, M);
 }
@@ -184,7 +184,7 @@ CONST DWORD PTGX = 0x41C4C0;
 CONST DWORD PTGY = 0x41C550;
 CONST DWORD GTPX = 0x41C680;
 CONST DWORD GTPY = 0x41C740;
-__declspec(naked) int Lawn::PlantingPixelToGridX(SeedType, int, int)
+__declspec(naked) int Board::PlantingPixelToGridX(SeedType, int, int)
 {
 	__asm
 	{
@@ -195,7 +195,7 @@ __declspec(naked) int Lawn::PlantingPixelToGridX(SeedType, int, int)
 		ret 0xC
 	}
 }
-__declspec(naked) int Lawn::PlantingPixelToGridY(SeedType, int, int)
+__declspec(naked) int Board::PlantingPixelToGridY(SeedType, int, int)
 {
 	__asm
 	{
@@ -210,7 +210,7 @@ __declspec(naked) int Lawn::PlantingPixelToGridY(SeedType, int, int)
 		ret 0xC
 	}
 }
-__declspec(naked) int Lawn::PixelToGridX(int, int)
+__declspec(naked) int Board::PixelToGridX(int, int)
 {
 	__asm
 	{
@@ -222,7 +222,7 @@ __declspec(naked) int Lawn::PixelToGridX(int, int)
 		ret 0x8
 	}
 }
-__declspec(naked) int Lawn::PixelToGridY(int, int)
+__declspec(naked) int Board::PixelToGridY(int, int)
 {
 	__asm
 	{
@@ -233,7 +233,7 @@ __declspec(naked) int Lawn::PixelToGridY(int, int)
 		ret 0x8
 	}
 }
-__declspec(naked) int Lawn::GridToPixelX(int, int)
+__declspec(naked) int Board::GridToPixelX(int, int)
 {
 	__asm
 	{
@@ -245,7 +245,7 @@ __declspec(naked) int Lawn::GridToPixelX(int, int)
 		ret 0x8
 	}
 }
-int __declspec(naked) Lawn::GridToPixelY(int, int)
+int __declspec(naked) Board::GridToPixelY(int, int)
 {
 	__asm
 	{
@@ -259,7 +259,7 @@ int __declspec(naked) Lawn::GridToPixelY(int, int)
 	}
 }
 
-void Lawn::KillPlantCell(int C, int L)
+void Board::KillPlantCell(int C, int L)
 {
 	auto aPlant = mPlants.GetNext();
 	while (aPlant)
@@ -275,7 +275,7 @@ void Lawn::KillPlantCell(int C, int L)
 	}
 }
 
-GridItem* Lawn::AddGrave(int Col, int Lane, bool DoEffects, bool KillPlants)
+GridItem* Board::AddGrave(int Col, int Lane, bool DoEffects, bool KillPlants)
 {
 	mEnableGraveStones = true;
 
@@ -290,7 +290,7 @@ GridItem* Lawn::AddGrave(int Col, int Lane, bool DoEffects, bool KillPlants)
 	return New;
 }
 
-Pickup* Lawn::NewPacket(SeedType Type, int X, int Y)
+Coin* Board::NewPacket(SeedType Type, int X, int Y)
 {
 	auto Packet = NewPickup(PICKUP_USABLE_SEED_PACKET, X, Y);
 	Packet->mUsableSeedType = Type;
@@ -298,21 +298,21 @@ Pickup* Lawn::NewPacket(SeedType Type, int X, int Y)
 }
 
 using Sexy::Vector2;
-IVector2 Lawn::PlantingPixelToGrid(SeedType T, int X, int Y)
+IVector2 Board::PlantingPixelToGrid(SeedType T, int X, int Y)
 {
 	return IVector2(
 		PlantingPixelToGridX(T, X, Y),
 		PlantingPixelToGridX(T, X, Y)
 	);
 }
-IVector2 Lawn::PixelToGrid(int X, int Y)
+IVector2 Board::PixelToGrid(int X, int Y)
 {
 	return IVector2(
 		PixelToGridX(X, Y),
 		PixelToGridY(X, Y)
 	);
 }
-IVector2 Lawn::GridToPixel(int C, int L)
+IVector2 Board::GridToPixel(int C, int L)
 {
 	return IVector2(
 		GridToPixelX(C, L),
@@ -321,20 +321,20 @@ IVector2 Lawn::GridToPixel(int C, int L)
 }
 
 using Sexy::Rect;
-IRect Lawn::GridToPixelArea(int C, int L, int W, int H)
+IRect Board::GridToPixelArea(int C, int L, int W, int H)
 {
 	auto Start = GridToPixel(C, L);
 	auto End = GridToPixel(C + W, L + H);
 	return IRect(Start, End - Start);
 }
-IRect Lawn::PixelToGridArea(int X, int Y, int W, int H)
+IRect Board::PixelToGridArea(int X, int Y, int W, int H)
 {
 	auto Start = PixelToGrid(X, Y);
 	auto End = PixelToGrid(X + W, Y + H);
 	return IRect(Start, End - Start);
 }
 
-Projectile* Lawn::GetNearestProjectile(FVector2 Point, float MinDist, ProjectileType Filter, bool IsBlacklist)
+Projectile* Board::GetNearestProjectile(FVector2 Point, float MinDist, ProjectileType Filter, bool IsBlacklist)
 {
 	bool DoFilter = Filter != -1;
 	auto aProj = mProjectiles.GetNext();
@@ -364,7 +364,7 @@ Projectile* Lawn::GetNearestProjectile(FVector2 Point, float MinDist, Projectile
 	return ClosestProjectile;
 }
 
-GridItem* Lawn::GetNearestGridItem(FVector2 Point, float MinDist, GridItemType Filter, bool IsBlacklist)
+GridItem* Board::GetNearestGridItem(FVector2 Point, float MinDist, GridItemType Filter, bool IsBlacklist)
 {
 	bool DoFilter = Filter != -1;
 	auto aItem = mGridItems.GetNext();
@@ -394,7 +394,7 @@ GridItem* Lawn::GetNearestGridItem(FVector2 Point, float MinDist, GridItemType F
 	return ClosestItem;
 }
 
-Zombie* Lawn::GetNearestZombie(FVector2 Point, float MinDist, ZombieType Filter, bool IsBlacklist)
+Zombie* Board::GetNearestZombie(FVector2 Point, float MinDist, ZombieType Filter, bool IsBlacklist)
 {
 	bool DoFilter = Filter != -1;
 	auto aZombie = mZombies.GetNext();
@@ -425,13 +425,13 @@ Zombie* Lawn::GetNearestZombie(FVector2 Point, float MinDist, ZombieType Filter,
 	return ClosestZombie;
 }
 
-Pickup* Lawn::GetNearestPickup(FVector2 Point, float MinDist, PickupType Filter, bool IsBlacklist)
+Coin* Board::GetNearestPickup(FVector2 Point, float MinDist, CoinType Filter, bool IsBlacklist)
 {
 	bool DoFilter = Filter != -1;
 	auto aPickup = mPickups.GetNext();
 	float CurrentDist = 0;
 
-	Pickup* ClosestPickup = nullptr;
+	Coin* ClosestPickup = nullptr;
 	float SmallestDist = -1;
 
 	while (aPickup)
@@ -455,7 +455,7 @@ Pickup* Lawn::GetNearestPickup(FVector2 Point, float MinDist, PickupType Filter,
 	return ClosestPickup;
 }
 
-Plant* Lawn::GetNearestPlant(FVector2 Point, float MinDist, SeedType Filter, bool IsBlacklist)
+Plant* Board::GetNearestPlant(FVector2 Point, float MinDist, SeedType Filter, bool IsBlacklist)
 {
 	bool DoFilter = Filter != -1;
 	auto aPlant = mPlants.GetNext();
@@ -485,7 +485,7 @@ Plant* Lawn::GetNearestPlant(FVector2 Point, float MinDist, SeedType Filter, boo
 	return ClosestPlant;
 }
 
-std::list<Projectile*> Lawn::GetProjectilesInArea(IRect Area, ProjectileType Type, bool IsBlacklist)
+std::list<Projectile*> Board::GetProjectilesInArea(IRect Area, ProjectileType Type, bool IsBlacklist)
 {
 	bool DoFilter = Type != -1;
 	auto List = std::list<Projectile*>();
@@ -506,7 +506,7 @@ std::list<Projectile*> Lawn::GetProjectilesInArea(IRect Area, ProjectileType Typ
 	return List;
 }
 
-std::list<GridItem*> Lawn::GetGridItemsInArea(IRect Area, GridItemType Type, bool IsBlacklist)
+std::list<GridItem*> Board::GetGridItemsInArea(IRect Area, GridItemType Type, bool IsBlacklist)
 {
 	bool DoFilter = Type != -1;
 	auto List = std::list<GridItem*>();
@@ -527,7 +527,7 @@ std::list<GridItem*> Lawn::GetGridItemsInArea(IRect Area, GridItemType Type, boo
 	return List;
 }
 
-std::list<Zombie*> Lawn::GetZombiesInArea(IRect Area, ZombieType Type, bool IsBlacklist)
+std::list<Zombie*> Board::GetZombiesInArea(IRect Area, ZombieType Type, bool IsBlacklist)
 {
 	bool DoFilter = Type != -1;
 	auto List = std::list<Zombie*>();
@@ -548,10 +548,10 @@ std::list<Zombie*> Lawn::GetZombiesInArea(IRect Area, ZombieType Type, bool IsBl
 	return List;
 }
 
-std::list<Pickup*> Lawn::GetPickupsInArea(IRect Area, PickupType Type, bool IsBlacklist)
+std::list<Coin*> Board::GetPickupsInArea(IRect Area, CoinType Type, bool IsBlacklist)
 {
 	bool DoFilter = Type != -1;
-	auto List = std::list<Pickup*>();
+	auto List = std::list<Coin*>();
 	auto aItem = mPickups.GetNext();
 	while (aItem)
 	{
@@ -569,7 +569,7 @@ std::list<Pickup*> Lawn::GetPickupsInArea(IRect Area, PickupType Type, bool IsBl
 	return List;
 }
 
-std::list<Plant*> Lawn::GetPlantsInArea(IRect Area, SeedType Type, bool IsBlacklist)
+std::list<Plant*> Board::GetPlantsInArea(IRect Area, SeedType Type, bool IsBlacklist)
 {
 	bool DoFilter = Type != -1;
 	auto List = std::list<Plant*>();

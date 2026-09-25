@@ -14,3 +14,4 @@
 #include "Zombie.h"
 #include "Plant.h"
 #include "Lawn.h"
+#include "Pickup.h"

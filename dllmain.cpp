@@ -17,6 +17,50 @@ void __stdcall Hook(DWORD Address, void* Function)
 	VirtualProtect((LPVOID)Address, 5, OldProt, &Temp);
 }
 
+__declspec(naked) Coin* COINADDED()
+{
+	__asm
+	{
+		push dword ptr[esp + 16]
+		push dword ptr[esp + 16]
+		push dword ptr[esp + 16]
+		push dword ptr[esp + 16]
+		push ecx
+		call CoinAdded
+		ret 0x10
+	}
+}
+
+__declspec(naked) void COLLECTCOIN()
+{
+	__asm
+	{
+		push ecx
+		call CollectCoin
+		ret
+	}
+}
+
+__declspec(naked) void UPDATECOIN()
+{
+	__asm
+	{
+		push eax
+		call UpdateCoin
+		ret
+	}
+}
+
+__declspec(naked) bool UPDATEAPP()
+{
+	__asm
+	{
+		push ecx
+		call UpdateApp
+		ret
+	}
+}
+
 __declspec(naked) void LAWNUPDATING()
 {
 	__asm
@@ -280,7 +324,7 @@ __declspec(naked) void __stdcall Original::ZombieUpdate(Zombie*)
 }
 
 CONST DWORD _F10 = 0x40AF96;
-__declspec(naked) void __stdcall Original::LawnInitLevel(Lawn*)
+__declspec(naked) void __stdcall Original::LawnInitLevel(Board*)
 {
 	__asm
 	{
@@ -292,7 +336,7 @@ __declspec(naked) void __stdcall Original::LawnInitLevel(Lawn*)
 }
 
 CONST DWORD _F11 = 0x4130D5;
-__declspec(naked) void __stdcall Original::LawnUpdate(Lawn*)
+__declspec(naked) void __stdcall Original::LawnUpdate(Board*)
 {
 	__asm
 	{
@@ -306,6 +350,72 @@ __declspec(naked) void __stdcall Original::LawnUpdate(Lawn*)
 		push ebp
 		push esi
 		jmp _F11
+	}
+}
+
+CONST DWORD _F_UpdateApp = 0x453A57; // 0x453A50 + 7 stolen bytes
+__declspec(naked) bool __stdcall Original::UpdateApp(LawnApp*)
+{
+	__asm
+	{
+		mov ecx, dword ptr[esp + 4]
+		call Tramp
+		ret 0x4
+		Tramp:
+		cmp byte ptr[ecx + 0x834], 0
+			jmp _F_UpdateApp
+	}
+}
+
+CONST DWORD _F_UpdateCoin = 0x431506; // 0x431500 + 6 stolen bytes
+__declspec(naked) void __stdcall Original::UpdateCoin(Coin*)
+{
+	__asm
+	{
+		mov eax, dword ptr[esp + 4]
+		call Tramp
+		ret 0x4
+		Tramp:
+		sub esp, 0x20
+			push ebx
+			mov ebx, eax
+			jmp _F_UpdateCoin
+	}
+}
+
+CONST DWORD _F_CollectCoin = 0x430E46; // 0x430E40 + 6 stolen bytes
+__declspec(naked) void __stdcall Original::CollectCoin(Coin*)
+{
+	__asm
+	{
+		mov ecx, dword ptr[esp + 4]
+		call Tramp
+		ret 0x4
+		Tramp:
+		push ebp
+			mov ebp, esp
+			and esp, 0xfffffff8
+			jmp _F_CollectCoin
+	}
+}
+
+CONST DWORD _F_CoinAdded = 0x40CB16; // 0x40CB10 + 6 stolen bytes
+__declspec(naked) Coin* __stdcall Original::CoinAdded(Board*, CoinMotion, CoinType, int, int)
+{
+	__asm
+	{
+		mov ecx, dword ptr[esp + 4]
+		push dword ptr[esp + 20]
+		push dword ptr[esp + 20]
+		push dword ptr[esp + 20]
+		push dword ptr[esp + 20]
+		call Tramp
+		ret 0x14
+		Tramp:
+		push ebp
+			mov ebp, esp
+			and esp, 0xfffffff8
+			jmp _F_CoinAdded
 	}
 }
 
@@ -332,6 +442,7 @@ BOOL APIENTRY DllMain
 
 	// Hooks
 	Hook(0x452CB0, ONLOAD);
+	Hook(0x453A50, UPDATEAPP);
 
 	// Board
 	Hook(0x40AF90, LawnInitLevel);
@@ -355,6 +466,10 @@ BOOL APIENTRY DllMain
 	Hook(0x46E000, PROJCOLL);
 	Hook(0x46E540, ProjectileDrawing);
 
+	// Coin
+	Hook(0x40CB10, COINADDED);
+	Hook(0x431500, UPDATECOIN);
+	Hook(0x430E40, COLLECTCOIN);
 	
 	AllocConsole();
 	FILE* O = nullptr;

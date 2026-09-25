@@ -54,7 +54,7 @@ Zombie* GameObject::GetNearestZombie(float MinDist, ZombieType Filter, bool IsBl
 {
 	return mLawn->GetNearestZombie(mHitbox.GetCenter(), MinDist, Filter, IsBlacklist);
 }
-Pickup* GameObject::GetNearestPickup(float MinDist, PickupType Filter, bool IsBlacklist)
+Coin* GameObject::GetNearestPickup(float MinDist, CoinType Filter, bool IsBlacklist)
 {
 	return mLawn->GetNearestPickup(mHitbox.GetCenter(), MinDist, Filter, IsBlacklist);
 }
@@ -81,7 +81,7 @@ std::list<Zombie*> GameObject::GetZombiesAround(int LR, int CR, ZombieType T, bo
 	auto Area = mLawn->GridToPixelArea(GridPos.mX - CR, GridPos.mY - LR, CR * 2 + 1, LR * 2 + 1);
 	return mLawn->GetZombiesInArea(Area, T, B);
 }
-std::list<Pickup*> GameObject::GetPickupsAround(int LR, int CR, PickupType T, bool B)
+std::list<Coin*> GameObject::GetPickupsAround(int LR, int CR, CoinType T, bool B)
 {
 	auto GridPos = GetGridPos();
 	auto Area = mLawn->GridToPixelArea(GridPos.mX - CR, GridPos.mY - LR, CR * 2 + 1, LR * 2 + 1);

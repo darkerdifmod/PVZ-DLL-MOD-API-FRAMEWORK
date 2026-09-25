@@ -4,7 +4,7 @@
 #include "Listeners.h"
 #include "UIElement.h"
 
-class Lawn : Sexy::UIElement, Sexy::ButtonListener
+class Board : Sexy::UIElement, Sexy::ButtonListener
 {
 #pragma region Fields
 public:
@@ -12,7 +12,7 @@ public:
 	DataArray<Zombie> mZombies;
 	DataArray<Plant> mPlants;
 	DataArray<Projectile> mProjectiles;
-	DataArray<Pickup> mPickups;
+	DataArray<Coin> mPickups;
 	DataArray<LawnMower> mLawnMowers;
 	DataArray<GridItem> mGridItems;
 	CursorObject* mCursorObject;
@@ -162,9 +162,9 @@ public:
 
 	int CountGraves();
 
-	Pickup* NewPickup(int X, int Y, PickupType, PickupMotion = PICKUP_MOTION_COIN);
-	Pickup* NewPickup(PickupType, int X, int Y, PickupMotion = PICKUP_MOTION_COIN);
-	Pickup* NewPacket(SeedType, int X, int Y);
+	Coin* NewPickup(int X, int Y, CoinType, CoinMotion = PICKUP_MOTION_COIN);
+	Coin* NewPickup(CoinType, int X, int Y, CoinMotion = PICKUP_MOTION_COIN);
+	Coin* NewPacket(SeedType, int X, int Y);
 
 	Zombie* NewZombie(ZombieType, int Lane, int FromWave = 0);
 	void SpawnZombiesFromPool();
@@ -194,13 +194,13 @@ public:
 	Projectile* GetNearestProjectile(Sexy::FVector2, float MinDistance = 0, ProjectileType Filter = (ProjectileType)-1, bool IsBlacklist = false);
 	GridItem* GetNearestGridItem(Sexy::FVector2, float MinDistance = 0, GridItemType = GRIDITEM_NONE, bool IsBlacklist = false);
 	Zombie* GetNearestZombie(Sexy::FVector2, float MinDistance = 0, ZombieType = (ZombieType)-1, bool IsBlacklist = false);
-	Pickup* GetNearestPickup(Sexy::FVector2, float MinDistance = 0, PickupType = PICKUP_NONE, bool IsBlacklist = false);
+	Coin* GetNearestPickup(Sexy::FVector2, float MinDistance = 0, CoinType = PICKUP_NONE, bool IsBlacklist = false);
 	Plant* GetNearestPlant(Sexy::FVector2, float MinDistance = 0, SeedType = SEED_NONE, bool IsBlacklist = false);
 
 	std::list<Projectile*> GetProjectilesInArea(Sexy::IRect, ProjectileType = (ProjectileType)-1, bool IsBlacklist = false);
 	std::list<GridItem*> GetGridItemsInArea(Sexy::IRect, GridItemType = GRIDITEM_NONE, bool IsBlacklist = false);
 	std::list<Zombie*> GetZombiesInArea(Sexy::IRect, ZombieType = (ZombieType)-1, bool IsBlacklist = false);
-	std::list<Pickup*> GetPickupsInArea(Sexy::IRect, PickupType = PICKUP_NONE, bool IsBlacklist = false);
+	std::list<Coin*> GetPickupsInArea(Sexy::IRect, CoinType = PICKUP_NONE, bool IsBlacklist = false);
 	std::list<Plant*> GetPlantsInArea(Sexy::IRect, SeedType = SEED_NONE, bool IsBlacklist = false);
 #pragma endregion
 };

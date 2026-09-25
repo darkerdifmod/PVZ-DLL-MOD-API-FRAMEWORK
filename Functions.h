@@ -4,13 +4,15 @@
 using namespace Sexy;
 // Load resources in this function. Called only once when the game is started.
 void __stdcall GameLoaded(LawnApp*);
+// Game Updating (possibly every tick)
+bool __stdcall UpdateApp(LawnApp* aApp);
 
 // Board \\
 // Called when a level is initialized.
-void __stdcall LawnInitLevel(Lawn*);
+void __stdcall LawnInitLevel(Board*);
 
 // Called every frame while the level's game objects are updating.
-void __stdcall LawnUpdating(Lawn*);
+void __stdcall LawnUpdating(Board*);
 
 // Plants \\
 // Called when a new plant is added to the game.
@@ -41,6 +43,13 @@ void __stdcall ProjectileUpdating(Projectile*);
 void __stdcall ProjectileColliding(Projectile*, Zombie*);
 // Called when a projectile is being drawn.
 void __stdcall ProjectileDrawing(Projectile*, Sexy::Graphics*);
+
+// Hooked at 0x431500. Arguments: aCoin=eax.
+void __stdcall UpdateCoin(Coin* aCoin);
+// Hooked at 0x430E40. Arguments: aCoin=ecx.
+void __stdcall CollectCoin(Coin* aCoin);
+// Hooked at 0x40CB10. Arguments: aBoard=ecx, aCoinMotion=stack, aCoinType=stack, aPosY=stack, aPosX=stack.
+Coin* __stdcall CoinAdded(Board* aBoard, CoinMotion aCoinMotion, CoinType aCoinType, int aPosY, int aPosX);
 
 void DrawPlantHealthBar(Sexy::Graphics* g, Plant* aPlant);
 

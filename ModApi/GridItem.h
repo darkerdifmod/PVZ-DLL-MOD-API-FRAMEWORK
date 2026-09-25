@@ -14,7 +14,7 @@ class GridItem
 
 public:
 	LawnApp* mApp;
-	Lawn* mLawn;
+	Board* mLawn;
 	GridItemType mGridItemType;
 	GridItemState mGridItemState;
 	union

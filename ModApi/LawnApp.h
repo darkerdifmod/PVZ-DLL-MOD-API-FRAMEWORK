@@ -16,7 +16,7 @@ class LawnApp : public Sexy::SexyApp
 {
 #pragma region Fields
 public:
-	Lawn* mLawn;
+	Board* mLawn;
 	LoadingScreen* mLoadingScreen;
 	MainMenu* mMainMenu;
 	SeedChooser* mSeedChooser;
@@ -84,11 +84,10 @@ public:
 	bool mDaisyMode;
 	bool mSukhbirMode;
 
-	Reanimation* ReanimationTryToGet(ReanimationID ID);
-
 	size_t mLawnAppSize = sizeof(LawnApp);
 #pragma endregion
 	static LawnApp* GetApp();
+	Reanimation* ReanimationTryToGet(ReanimationID ID);
 
 	int LawnMessageBox(int ID, const char* Head, const char* Body, const char* B1, const char* B2, int ButtonMode = 1);
 	Reanimation* AddReanim(ReanimationType, float X, float Y, int Layer = 400000);

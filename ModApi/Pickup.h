@@ -1,9 +1,11 @@
 #pragma once
 #include "GameObject.h"
 #include "PottedPlant.h"
+#include "SexyApp.h"
 
-class Pickup : public GameObject
+class Coin : public GameObject
 {
+#pragma region Fields
 public:
 	union
 	{
@@ -32,8 +34,8 @@ public:
 	int mCoinAge;
 	bool mIsBeingCollected;
 	int mDisappearCounter;
-	PickupType mType;
-	PickupMotion mCoinMotion;
+	CoinType mType;
+	CoinMotion mCoinMotion;
 	AttachmentID mAttachmentID;
 	float mCollectionDistance;
 	SeedType mUsableSeedType;
@@ -43,10 +45,12 @@ public:
 	bool mHitGround;
 	int mTimesDropped;
 
+#pragma endregion
+
 	void Update();
 	void Draw(Sexy::Graphics*);
 
-	Pickup(PickupType = PICKUP_NONE);
+	Coin(CoinType = PICKUP_NONE);
 	void Die();
 
 	void Collect();

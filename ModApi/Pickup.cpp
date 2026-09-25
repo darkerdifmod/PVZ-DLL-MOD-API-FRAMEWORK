@@ -3,7 +3,7 @@
 #include "ModApi/Pickup.h"
 
 CONST DWORD UPDATE = 0x431500;
-__declspec(naked) void Pickup::Update()
+__declspec(naked) void Coin::Update()
 {
 	__asm
 	{
@@ -13,7 +13,7 @@ __declspec(naked) void Pickup::Update()
 }
 
 CONST DWORD DRAW = 0x431810;
-__declspec(naked) void Pickup::Draw(Sexy::Graphics*)
+__declspec(naked) void Coin::Draw(Sexy::Graphics*)
 {
 	__asm
 	{
@@ -24,7 +24,7 @@ __declspec(naked) void Pickup::Draw(Sexy::Graphics*)
 	}
 }
 
-Pickup::Pickup(PickupType T)
+Coin::Coin(CoinType T)
 {
 	mApp = LawnApp::GetApp();
 	mLawn = mApp->mLawn;
@@ -36,7 +36,7 @@ Pickup::Pickup(PickupType T)
 }
 
 CONST DWORD DIE = 0x432DD0;
-__declspec(naked) void Pickup::Die()
+__declspec(naked) void Coin::Die()
 {
 	__asm
 	{
@@ -49,7 +49,7 @@ __declspec(naked) void Pickup::Die()
 }
 
 CONST DWORD COLLECT = 0x432060;
-__declspec(naked) void Pickup::Collect()
+__declspec(naked) void Coin::Collect()
 {
 	__asm
 	{
