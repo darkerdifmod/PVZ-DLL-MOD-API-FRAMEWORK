@@ -11,7 +11,11 @@ void __stdcall GameLoaded(LawnApp* App) // LawnAppInit
 bool __stdcall UpdateApp(LawnApp* aApp)
 {
 	auto Result = Original::UpdateApp(aApp); // vanilla behavior
-	return Result;
+	auto mApp = aApp;
+	auto mBoard = mApp->mLawn;
+
+
+	return Result;// DONT REMOVE AND IT HAS TO BE LAST LANE UN THIS FUNC
 }
 
 void __stdcall LawnInitLevel(Board* aBoard)
@@ -144,8 +148,7 @@ Coin* __stdcall CoinAdded(Board* aBoard, CoinMotion aCoinMotion, CoinType aCoinT
 	auto aCoin = Original::CoinAdded(aBoard, aCoinMotion, aCoinType, aPosY, aPosX); // vanilla behavior
 	auto mBoard = aCoin->mLawn;
 	auto mApp = aCoin->mApp;
-	if (aCoin->mType == PICKUP_LARGESUN) { mBoard->NewPickup(PICKUP_SMALLSUN, aCoin->mPosX, aCoin->mPosY); };
-	if (aCoin->mType == PICKUP_LARGESUN) { mBoard->NewPickup(PICKUP_SMALLSUN, aCoin->mPosX, aCoin->mPosY); };
-	if (aCoin->mType == PICKUP_LARGESUN) { mBoard->NewPickup(PICKUP_SMALLSUN, aCoin->mPosX, aCoin->mPosY); };
-	return aCoin;
+
+
+	return aCoin; // DONT REMOVE AND IT HAS TO BE LAST LANE UN THIS FUNC
 }
