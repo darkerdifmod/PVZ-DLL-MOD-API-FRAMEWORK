@@ -436,8 +436,6 @@ BOOL APIENTRY DllMain
 	MessageBoxA(NULL, "PVZ is x32 game please change compilation from x64 to x32","ERROR",MB_OK | MB_ICONERROR);
 	exit(-1);
 #endif // _DEBUG
-
-	
 	// Writes to memory
 	DoPatches();
 	//PatchReanimationArray();	//Unstable
