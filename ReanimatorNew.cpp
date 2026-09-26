@@ -152,5 +152,7 @@ ReanimationParams gLawnReanimationArray[(int)ReanimationType::NUM_REANIMS] = { /
 
 void PatchReanimationArray()
 {
+	MemUtil::WriteInt(0x4814F3, NUM_REANIMS - 1); // cmp esi, N-1
+	MemUtil::WriteInt(0x48153C, NUM_REANIMS);      // cmp ecx, N
     MemUtil::WriteInt(0x4737A5, (int)(uintptr_t)gLawnReanimationArray);
 }
