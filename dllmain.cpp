@@ -440,7 +440,7 @@ BOOL APIENTRY DllMain
 	
 	// Writes to memory
 	DoPatches();
-	PatchReanimationArray();
+	//PatchReanimationArray();	//Unstable
 
 	// Hooks
 	Hook(0x452CB0, ONLOAD);
