@@ -19,6 +19,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Reanimations">
+      <UniqueIdentifier>{968e75dc-fb3e-41d6-96f1-1f5c7fbe5756}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -86,6 +89,9 @@
     </ClCompile>
     <ClCompile Include="MemUtil.cpp">
       <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ReanimatorNew.cpp">
+      <Filter>Reanimations</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -199,6 +205,9 @@
     </ClInclude>
     <ClInclude Include="MemUtil.h">
       <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ReanimatorNew.hpp">
+      <Filter>Reanimations</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

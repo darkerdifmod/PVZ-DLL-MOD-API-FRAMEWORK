@@ -164,6 +164,7 @@
     <ClCompile Include="ModApi\Zombie.cpp" />
     <ClCompile Include="ModApi\ZombieDefinition.cpp" />
     <ClCompile Include="Patches.cpp" />
+    <ClCompile Include="ReanimatorNew.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Functions.h" />
@@ -203,6 +204,7 @@
     <ClInclude Include="ModApi\Zombie.h" />
     <ClInclude Include="Original.h" />
     <ClInclude Include="Patches.h" />
+    <ClInclude Include="ReanimatorNew.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

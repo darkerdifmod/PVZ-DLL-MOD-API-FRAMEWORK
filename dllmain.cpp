@@ -3,6 +3,7 @@
 #include "Functions.h"
 #include "Original.h"
 #include "Patches.h"
+#include "ReanimatorNew.hpp"
 
 void __stdcall Hook(DWORD Address, void* Function)
 {
@@ -439,6 +440,7 @@ BOOL APIENTRY DllMain
 	
 	// Writes to memory
 	DoPatches();
+	PatchReanimationArray();
 
 	// Hooks
 	Hook(0x452CB0, ONLOAD);
@@ -474,7 +476,7 @@ BOOL APIENTRY DllMain
 	AllocConsole();
 	FILE* O = nullptr;
 	freopen_s(&O, "CONOUT$", "w", stdout);
-	SetConsoleTitleA("im console and im alive");
+	SetConsoleTitleA("dll mod api by csc®");
 
     return TRUE;
 }

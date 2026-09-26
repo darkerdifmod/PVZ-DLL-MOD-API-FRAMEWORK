@@ -5,7 +5,7 @@
 // Load resources in this function. Called only once when the game loads.
 void __stdcall GameLoaded(LawnApp* App) // LawnAppInit
 {
-	
+
 }
 
 bool __stdcall UpdateApp(LawnApp* aApp)
