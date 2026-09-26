@@ -143,9 +143,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="Framework\HealthBars.cpp" />
+    <ClCompile Include="Framework\MemUtil.cpp" />
+    <ClCompile Include="Framework\Patches.cpp" />
+    <ClCompile Include="Framework\ReanimatorNew.cpp" />
     <ClCompile Include="Functions.cpp" />
-    <ClCompile Include="HealthBars.cpp" />
-    <ClCompile Include="MemUtil.cpp" />
     <ClCompile Include="ModApi\CGeometry.cpp" />
     <ClCompile Include="ModApi\EffectSystem.cpp" />
     <ClCompile Include="ModApi\GameObject.cpp" />
@@ -163,13 +165,13 @@
     <ClCompile Include="ModApi\ProjectileDefinition.cpp" />
     <ClCompile Include="ModApi\Zombie.cpp" />
     <ClCompile Include="ModApi\ZombieDefinition.cpp" />
-    <ClCompile Include="Patches.cpp" />
-    <ClCompile Include="ReanimatorNew.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Framework\HealthBar.h" />
+    <ClInclude Include="Framework\MemUtil.h" />
+    <ClInclude Include="Framework\Patches.h" />
+    <ClInclude Include="Framework\ReanimatorNew.hpp" />
     <ClInclude Include="Functions.h" />
-    <ClInclude Include="HealthBar.h" />
-    <ClInclude Include="MemUtil.h" />
     <ClInclude Include="ModApi\Attachment.h" />
     <ClInclude Include="ModApi\Buffer.h" />
     <ClInclude Include="ModApi\CGeometry.h" />
@@ -203,8 +205,6 @@
     <ClInclude Include="ModApi\Vector3.h" />
     <ClInclude Include="ModApi\Zombie.h" />
     <ClInclude Include="Original.h" />
-    <ClInclude Include="Patches.h" />
-    <ClInclude Include="ReanimatorNew.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

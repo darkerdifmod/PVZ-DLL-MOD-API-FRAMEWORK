@@ -132,7 +132,6 @@ void __stdcall UpdateCoin(Coin* aCoin)
 	auto mApp = aCoin->mApp;
 	Original::UpdateCoin(aCoin); // vanilla behavior. Remove this line to replace it completely.
 	// your code here
-	if (aCoin->mCoinAge == 200) { aCoin->Collect(); };
 }
 
 void __stdcall CollectCoin(Coin* aCoin)

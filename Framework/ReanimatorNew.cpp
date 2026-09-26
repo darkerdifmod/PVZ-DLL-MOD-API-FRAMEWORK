@@ -2,7 +2,7 @@
 #include "Original.h"
 #include <iostream>
 #include "MemUtil.h"
-#include <ReanimatorNew.hpp>
+#include <Framework\ReanimatorNew.hpp>
 
 ReanimationParams gLawnReanimationArray[(int)ReanimationType::NUM_REANIMS] = { //0x6A1340
 	{ ReanimationType::REANIM_LOADBAR_SPROUT,                       "reanim\\LoadBar_sprout.reanim",                    1 },

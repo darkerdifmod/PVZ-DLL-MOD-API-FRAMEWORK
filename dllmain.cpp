@@ -2,8 +2,8 @@
 
 #include "Functions.h"
 #include "Original.h"
-#include "Patches.h"
-#include "ReanimatorNew.hpp"
+#include "Framework\Patches.h"
+#include "Framework\ReanimatorNew.hpp"
 
 void __stdcall Hook(DWORD Address, void* Function)
 {

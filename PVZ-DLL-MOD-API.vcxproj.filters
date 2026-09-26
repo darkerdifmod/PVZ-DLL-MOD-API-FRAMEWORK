@@ -81,17 +81,17 @@
     <ClCompile Include="ModApi\EffectSystem.cpp">
       <Filter>ModApi</Filter>
     </ClCompile>
-    <ClCompile Include="HealthBars.cpp">
-      <Filter>ModApi</Filter>
-    </ClCompile>
-    <ClCompile Include="Patches.cpp">
+    <ClCompile Include="Framework\Patches.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MemUtil.cpp">
+    <ClCompile Include="Framework\ReanimatorNew.cpp">
+      <Filter>Reanimations</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\MemUtil.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="ReanimatorNew.cpp">
-      <Filter>Reanimations</Filter>
+    <ClCompile Include="Framework\HealthBars.cpp">
+      <Filter>Resource Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -197,17 +197,17 @@
     <ClInclude Include="ModApi\Trail.h">
       <Filter>ModApi</Filter>
     </ClInclude>
-    <ClInclude Include="HealthBar.h">
-      <Filter>ModApi</Filter>
-    </ClInclude>
-    <ClInclude Include="Patches.h">
+    <ClInclude Include="Framework\Patches.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="MemUtil.h">
+    <ClInclude Include="Framework\ReanimatorNew.hpp">
+      <Filter>Reanimations</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\MemUtil.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
-    <ClInclude Include="ReanimatorNew.hpp">
-      <Filter>Reanimations</Filter>
+    <ClInclude Include="Framework\HealthBar.h">
+      <Filter>Resource Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
