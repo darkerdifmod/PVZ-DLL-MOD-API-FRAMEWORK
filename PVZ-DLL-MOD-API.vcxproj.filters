@@ -93,6 +93,9 @@
     <ClCompile Include="Framework\HealthBars.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
+    <ClCompile Include="Helper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ModApi\MSD3D\MSD3D.h">

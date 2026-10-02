@@ -54,3 +54,7 @@ Coin* __stdcall CoinAdded(Board* aBoard, CoinMotion aCoinMotion, CoinType aCoinT
 void DrawPlantHealthBar(Sexy::Graphics* g, Plant* aPlant);
 
 void DrawZombieHealthBar(Sexy::Graphics* g, Zombie* aZombie);
+
+std::vector<Zombie*> GetAllZombies(Board* aLawn);
+
+std::vector<Plant*> GetAllPlants(Board* aLawn);

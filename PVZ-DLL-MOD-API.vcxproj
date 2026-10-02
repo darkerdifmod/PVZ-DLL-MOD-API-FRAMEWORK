@@ -148,6 +148,7 @@
     <ClCompile Include="Framework\Patches.cpp" />
     <ClCompile Include="Framework\ReanimatorNew.cpp" />
     <ClCompile Include="Functions.cpp" />
+    <ClCompile Include="Helper.cpp" />
     <ClCompile Include="ModApi\CGeometry.cpp" />
     <ClCompile Include="ModApi\EffectSystem.cpp" />
     <ClCompile Include="ModApi\GameObject.cpp" />
