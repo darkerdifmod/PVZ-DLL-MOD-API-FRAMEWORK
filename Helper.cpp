@@ -13,6 +13,7 @@ std::vector<Zombie*> GetAllZombies(Board* aLawn)
         if (z)
             zombies.push_back(z);
     }
+	delete z;
 
     return zombies;
 }
@@ -21,12 +22,13 @@ std::vector<Plant*> GetAllPlants(Board* aLawn)
 {
     std::vector<Plant*> Plants;
 
-    Plant* z = nullptr;
-    while (aLawn->mPlants.Next(&z))
+    Plant* p = nullptr;
+    while (aLawn->mPlants.Next(&p))
     {
-        if (z)
-            Plants.push_back(z);
+        if (p)
+            Plants.push_back(p);
     }
+	delete p;
 
     return Plants;
 }

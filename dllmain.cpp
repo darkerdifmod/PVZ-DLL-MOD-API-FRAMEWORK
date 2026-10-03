@@ -472,8 +472,14 @@ BOOL APIENTRY DllMain
 	Hook(0x430E40, COLLECTCOIN);
 	
 	AllocConsole();
-	FILE* O = nullptr;
-	freopen_s(&O, "CONOUT$", "w", stdout);
+	FILE* f = nullptr;
+	freopen_s(&f, "CONIN$", "r", stdin);
+	freopen_s(&f, "CONOUT$", "w", stdout);
+	freopen_s(&f, "CONOUT$", "w", stderr);
+	std::ios::sync_with_stdio(true);
+	std::cin.clear();
+	std::cout.clear();
+	std::cerr.clear();
 	SetConsoleTitleA("dll mod api by csc®");
 
     return TRUE;
