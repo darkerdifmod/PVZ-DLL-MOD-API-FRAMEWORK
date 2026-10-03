@@ -3,9 +3,9 @@
 #include "Functions.h"
 #include "ModApi/Lawn.h"
 
-std::vector<Zombie*> GetAllZombies(Board* aLawn)
+std::list<Zombie*> Board::GetAllZombies(Board* aLawn)
 {
-    std::vector<Zombie*> zombies;
+    std::list<Zombie*> zombies;
 
     Zombie* z = nullptr;
     while (aLawn->mZombies.Next(&z))
@@ -18,9 +18,9 @@ std::vector<Zombie*> GetAllZombies(Board* aLawn)
     return zombies;
 }
 
-std::vector<Plant*> GetAllPlants(Board* aLawn)
+std::list<Plant*> Board::GetAllPlants(Board* aLawn)
 {
-    std::vector<Plant*> Plants;
+    std::list<Plant*> Plants;
 
     Plant* p = nullptr;
     while (aLawn->mPlants.Next(&p))

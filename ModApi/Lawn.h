@@ -198,6 +198,9 @@ public:
 	Coin* GetNearestPickup(Sexy::FVector2, float MinDistance = 0, CoinType = PICKUP_NONE, bool IsBlacklist = false);
 	Plant* GetNearestPlant(Sexy::FVector2, float MinDistance = 0, SeedType = SEED_NONE, bool IsBlacklist = false);
 
+	std::list<Zombie*> GetAllZombies(Board* aLawn);
+	std::list<Plant*> GetAllPlants(Board* aLawn);
+
 	std::list<Projectile*> GetProjectilesInArea(Sexy::IRect, ProjectileType = (ProjectileType)-1, bool IsBlacklist = false);
 	std::list<GridItem*> GetGridItemsInArea(Sexy::IRect, GridItemType = GRIDITEM_NONE, bool IsBlacklist = false);
 	std::list<Zombie*> GetZombiesInArea(Sexy::IRect, ZombieType = (ZombieType)-1, bool IsBlacklist = false);
